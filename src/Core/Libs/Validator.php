@@ -261,21 +261,14 @@ class Validator
     private function _loopingAndGetName($arg)
     {
         for ($i = 0; $i < count($this->_rule_data); $i++) {
-
-            if (in_array($arg, $this->_rule_data[$i])) {
-
-                $argument = $this->_rule_data[$i];
-
-                return $argument;
+            if (!in_array($arg, $this->_rule_data[$i])) {
+                continue;
 
             } else {
-
-                $argument = $arg;
-
-                return $argument;
+                $argument = $this->_rule_data[$i];
             }
         }
-
+        return $argument;
     }
 
     /**

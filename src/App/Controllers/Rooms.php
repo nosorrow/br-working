@@ -287,4 +287,21 @@ class Rooms extends Controller
         echo tr_('стаята е премахната');
     }
 
+    public function testForm()
+    {
+        view('test');
+    }
+
+    public function test(Request $request, Validator $validator)
+    {
+        $validator->make('email', 'Email address', ['required', 'email'])
+            ->make('password', 'Password', ['required', 'min:3'])
+            ->make('passwordconfirm', 'Confirm password', ['required', 'match:password'])
+            ->make('agree', 'Agree', ['required']);
+
+        if($validator->run() === false){
+
+           dump($validator->_errors);
+        }
+    }
 }

@@ -72,7 +72,7 @@ $lang = $str[0];
                                     <div class="input-group-addon" style="border-radius: 0 !important;">
                                         <span class="fa fa-calendar fa-lg" aria-hidden="true"></span>
                                     </div>
-                                    <input type="text" name="checkin" class="form-control" id="checkin"
+                                    <input type="text" name="checkin" class="form-control" id="checkin" autocomplete="off"
                                            placeholder="<?php echo $tr_placeholder_arrival; ?>"
                                            value="<?php echo oldValue('checkin'); ?>">
                                 </div>
@@ -83,7 +83,7 @@ $lang = $str[0];
                                     <div class="input-group-addon">
                                         <span class="fa fa-calendar fa-lg" aria-hidden="true"></span>
                                     </div>
-                                    <input type="text" class="form-control" name="checkout" id="checkout"
+                                    <input type="text" class="form-control" name="checkout" id="checkout" autocomplete="off"
                                            placeholder="<?php echo $tr_placeholder_departure; ?>"
                                            value="<?php echo oldValue('checkout'); ?>">
                                 </div>

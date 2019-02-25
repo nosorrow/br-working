@@ -71,6 +71,7 @@ trait MySqlDBQuery
      * @param $sql
      * @param null $args
      * @return \PDOStatement
+     * @throws \Exception
      */
     public function execute_sql($sql, $args = NULL)
     {
