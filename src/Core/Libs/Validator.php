@@ -21,8 +21,6 @@
 namespace Core\Libs;
 
 use Core\Bootstrap\DiContainer;
-use Core\Libs\Request;
-use Core\Libs\Message;
 use Core\Libs\Database\MySqlPDOConnection;
 
 class Validator
@@ -93,7 +91,7 @@ class Validator
      * @return $this
      */
     //todo:: array of validation rules
-    public function make($field, $label= null, $rules=null, $customMsg = null)
+    public function make($field, $label = null, $rules = null, $customMsg = null)
     {
         /*[
             'email'=>[
@@ -105,7 +103,7 @@ class Validator
         if (is_array($field)) {
 
             foreach ($field as $key => $value) {
-                $this->_rule_data[] =[
+                $this->_rule_data[] = [
                     'field' => $key,
                     'label' => $value['label'],
                     'rules' => $value['rules']
@@ -174,10 +172,10 @@ class Validator
                         // Валидация
                         // ako e стойностите за валидиране са в масив
                         if (is_array($dataForValidation)) {
-                            foreach ($dataForValidation as $value){
+                            foreach ($dataForValidation as $value) {
                                 $run[] = $this->$rule($value, $arg);
                             }
-                            if (in_array(false, $run)){
+                            if (in_array(false, $run)) {
                                 $_run = false;
                             }
                         } else {
@@ -512,9 +510,15 @@ class Validator
     public function email($str)
     {
         if (function_exists('idn_to_ascii') && $atpos = strpos($str, '@')) {
-            $str = substr($str, 0, ++$atpos) . idn_to_ascii(substr($str, $atpos));
-        }
+             $str = substr($str, 0, ++$atpos) . idn_to_ascii(substr($str, $atpos));
+         }
 
+        /*if (function_exists('idn_to_ascii') && preg_match('#\A([^@]+)@(.+)\z#', $str, $matches)) {
+            $domain = is_php('5.4')
+                ? idn_to_ascii($matches[2], 0, INTL_IDNA_VARIANT_UTS46)
+                : idn_to_ascii($matches[2]);
+            $str = $matches[1] . '@' . $domain;
+        }*/
         return (bool)filter_var($str, FILTER_VALIDATE_EMAIL);
     }
 

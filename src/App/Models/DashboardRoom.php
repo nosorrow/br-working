@@ -23,14 +23,16 @@ class DashboardRoom extends Model
      */
     public function getAllRoomTypes()
     {
+        // max() Ако  mysql > 5.7  SQL mode ONLY_FULL_GROUP_BY
+        // http://www.tocker.ca/2014/01/24/proposal-to-enable-sql-mode-only-full-group-by-by-default.html
         $sql = "SELECT tbl_room_type.id, tbl_room_type.room_type,
                 tbl_room_type.room_type_slug, tbl_room_type.adults, tbl_room_type.child,
-                tbl_room_type_translate.beds, tbl_room_type_translate.description,
+                max(tbl_room_type_translate.beds) as beds, max(tbl_room_type_translate.description) as description,
                 tbl_room_type.max_guests, tbl_room_type.price_weekday, tbl_room_type.price_weekend,
                 tbl_room_type.quantity, tbl_room_type.img_type_url
                 FROM tbl_room_type
                 INNER JOIN tbl_room_type_translate ON tbl_room_type.id = tbl_room_type_translate.room_type_id
-                GROUP BY tbl_room_type.id";
+                GROUP BY tbl_room_type.id, tbl_room_type.room_type, tbl_room_type.max_guests";
 
         return $this->execute_sql($sql)->fetchAll(\PDO::FETCH_OBJ);
     }

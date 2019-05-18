@@ -14,6 +14,25 @@ use Core\Libs\Support\HigherOrderTapProxy;
 defined('APPLICATION_DIR') OR exit('No direct Accesss here !');
 
 /**
+ * @param  string  $version
+ *
+ * @return  bool
+ */
+function is_php($version = '5.0.0')
+{
+    static $phpVer;
+    $version = (string) $version;
+
+    if ( ! isset($phpVer[ $version ]))
+    {
+        $phpVer[ $version ] = (version_compare(PHP_VERSION, $version) < 0) ? false : true;
+    }
+
+    return $phpVer[ $version ];
+}
+
+
+/**
  *  DI Container
  */
 if (!function_exists('app')) {

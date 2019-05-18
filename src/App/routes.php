@@ -46,9 +46,8 @@ try {
         exit;
     });*/
 
-    Router::any('test-form', ['Rooms@testForm']);
-    Router::any('test-validate', ['Rooms@test']);
-
+    Router::any('test', ['TestController@test']);
+    Router::any('upform', ['TestController@upform']);
 // Install
     Router::get('install/{mode?}',
         ['Install@install']
