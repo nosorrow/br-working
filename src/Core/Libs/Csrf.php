@@ -2,8 +2,6 @@
 
 namespace Core\Libs;
 
-use Core\Libs\Session;
-
 class Csrf
 {
 
@@ -28,6 +26,7 @@ class Csrf
     /**
      * Csfr constructor.
      * @param \Core\Libs\Request $request
+     * @throws \Exception
      */
     public function __construct(Request $request)
     {
@@ -72,13 +71,17 @@ class Csrf
     {
         $input = $this->input;
 
-        if ($input->method() == 'POST' && $input->post('csrf_token') == $this->csrf_old_token) {
+        if(!$input->post('csrf_token')){
+            return false;
+        }
+
+        if ($input->method() == 'POST' && $input->post('csrf_token') === $this->csrf_old_token) {
 
             return true;
 
         } else {
 
-            return false;
+             return false;
         }
 
     }

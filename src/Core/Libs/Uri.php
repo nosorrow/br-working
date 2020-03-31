@@ -78,6 +78,7 @@ class Uri
                 $this->uri = $_uri;
             }
         }
+
     }
 
     /**

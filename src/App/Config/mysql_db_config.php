@@ -5,7 +5,7 @@ return [
     'host'      => 'localhost',
     'database'  => 'br_booking',
     'username'  => 'root',
-    'password'  => 'secret',
+    'password'  => '',
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',

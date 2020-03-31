@@ -275,7 +275,7 @@ class Reservations extends DashboardMainController
     {
         $id = $request->post("id", "int");
 
-        $update_data = ["room_id" => ""];
+        $update_data = ["room_id" => 0];
 
         if ($this->findRooms->table("tbl_reservation")
             ->where("id", "=", $id)->update($update_data)
@@ -327,12 +327,12 @@ class Reservations extends DashboardMainController
         $price = calculate_price($post['arrival'],$post['departure'], $post['room_type_id']);
         $insert_data = [
             'reservation_id'=>$post['reservation_id'],
-            'room_id'=>$post['room_id'],
-            'room_type_id'=>$post['room_type_id'],
+            'room_id'=>(int)$post['room_id'],
+            'room_type_id'=>(int)$post['room_type_id'],
             'checkin'=>$post['arrival'],
             'checkout'=>$post['departure'],
-            'adults'=>$post['adults'],
-            'child' =>$post['child'],
+            'adults'=>(int)$post['adults'],
+            'child' =>(int)$post['child'],
             'qty'=>1,
             'created'=>$now,
             'price'=>$price['total'],
