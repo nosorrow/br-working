@@ -219,7 +219,7 @@ class Upload
         $l = strlen($index) - 1;
         for ($i = 0; $i < $length; $i++) {
 
-            $str .= $index{mt_rand(0, $l)};
+            $str .= $index[mt_rand(0, $l)];
         }
 
         return $str;

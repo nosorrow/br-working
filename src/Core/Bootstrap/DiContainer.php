@@ -23,8 +23,12 @@ $dic = new Dic();
      var_dump( $dic->get('Bar') );
  *
  */
+
 namespace Core\Bootstrap;
 
+use Psr\Container\ContainerInterface;
+use ReflectionClass;
+use ReflectionException;
 
 class DiContainer
 {
@@ -70,11 +74,12 @@ class DiContainer
     /**
      *
      * @param $instance
+     * @throws ReflectionException
      */
     public function setInstance($instance)
     {
 
-        $reflection = new \ReflectionClass( $instance);
+        $reflection = new ReflectionClass($instance);
 
         $this->instances[$reflection->getName()] = $instance;
 
@@ -84,6 +89,7 @@ class DiContainer
      * @param $key
      * @return mixed
      * @throws Exception
+     * @throws ReflectionException
      */
     public function get($key)
     {
@@ -101,61 +107,62 @@ class DiContainer
 
             } else {
 
-                try{
+                $reflected_class = new ReflectionClass($key);
 
-                    $reflected_class = new \ReflectionClass($key);
+                if ($reflected_class->isInstantiable()) {
 
-                    if ($reflected_class->isInstantiable()) {
+                    $constructor = $reflected_class->getConstructor();
 
-                        $constructor = $reflected_class->getConstructor();
+                    if ($constructor) {
 
-                        if ($constructor) {
+                        $parameters = $constructor->getParameters();
+                        $constructor_parameters = [];
 
-                            $parameters = $constructor->getParameters();
+                        foreach ($parameters as $parameter) {
 
-                            $constructor_parameters = [];
+                            if ($parameter->getClass()) {
+                                $constructor_parameters[] = $this->get($parameter->getClass()->getName());
 
-                            foreach ($parameters as $parameter) {
-
-                                if ($parameter->getClass()) {
-
-                                    $constructor_parameters[] = $this->get($parameter->getClass()->getName());
-
-                                } else {
-
-                                    $constructor_parameters[] = $parameter->getDefaultValue();
-                                }
+                            } else {
+                                $constructor_parameters[] = $parameter->getDefaultValue();
                             }
-                            $this->instances[$key] = $reflected_class->newInstanceArgs($constructor_parameters);
-
-                        } else {
-
-                            $this->instances[$key] = $reflected_class->newInstance();
-
                         }
+
+                        $this->instances[$key] = $reflected_class->newInstanceArgs($constructor_parameters);
 
                     } else {
+                        $this->instances[$key] = $reflected_class->newInstance();
 
-                        try {
-
-                            $this->instances[$key] = $key::getInstance();
-
-                        } catch (\Exception $e) {
-
-                            echo 'Възникана грешка : ' . $e->getMessage() . '|' . $e->getTraceAsString();
-                        }
                     }
 
-                } catch (\Exception $e){
-
-                    echo 'Възникана грешка в DiContainer : ' .$e->getLine() .' | ' .$e->getMessage().
-                        ' | '. $e->getTraceAsString();
+                } else {
+                    $this->instances[$key] = $key::getInstance();
 
                 }
+
             }
         }
+        if (isset($this->instances[$key])) {
+            return $this->instances[$key];
 
-        return $this->instances[$key];
+        } else {
+            throw new \Exception("DiConainer error: cannot find instance of \{$key\} class", 500);
+        }
     }
 
+    /**
+     * Returns true if the container can return an entry for the given identifier.
+     * Returns false otherwise.
+     *
+     * `has($id)` returning true does not mean that `get($id)` will not throw an exception.
+     * It does however mean that `get($id)` will not throw a `NotFoundExceptionInterface`.
+     *
+     * @param string $id Identifier of the entry to look for.
+     *
+     * @return bool
+     */
+    public function has($id)
+    {
+        // TODO: Implement has() method.
+    }
 }
