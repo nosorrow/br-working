@@ -36,7 +36,6 @@ class Rooms extends Controller
         $this->findRooms = $findRooms;
         $this->bookingModel = $bookingModel;
         $this->deleteNotConfirmed($bookingModel);
-
     }
 
     /**
