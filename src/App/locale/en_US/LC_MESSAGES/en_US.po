@@ -1,0 +1,255 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BR_translate\n"
+"POT-Creation-Date: 2017-08-20 19:08+0300\n"
+"PO-Revision-Date: 2017-08-20 20:37+0300\n"
+"Last-Translator: \n"
+"Language-Team: BR_translate\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ../../..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _;__;tn_:1,2;tr_\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Controllers/RoomBooking.php:65 Controllers/Rooms.php:220
+msgid "бр. от тип"
+msgstr "qty"
+
+#: Controllers/RoomBooking.php:69 Controllers/RoomBooking.php:76
+#: Controllers/Rooms.php:101 Controllers/Rooms.php:219 Views/result.php:4
+#: Views/room.php:71 Views/room.php:129
+msgid "възрастни"
+msgstr "adults"
+
+#: Controllers/RoomBooking.php:70 Controllers/Rooms.php:221
+#: Views/result.php:268
+msgid "цена"
+msgstr "price"
+
+#: Controllers/RoomBooking.php:76
+msgid "стая"
+msgid_plural "стаи"
+msgstr[0] "room"
+msgstr[1] "rooms"
+
+#: Controllers/RoomBooking.php:77 Controllers/Rooms.php:224 Views/result.php:5
+#: Views/room.php:73 Views/room.php:130
+msgid "деца"
+msgstr "children"
+
+#: Controllers/RoomBooking.php:78
+msgid "общо"
+msgstr "total"
+
+#: Controllers/RoomBooking.php:84
+msgid "Изберете стая за резервация"
+msgstr "Add room"
+
+#: Controllers/RoomBooking.php:118 Views/booking.php:67 Views/booking.php:69
+msgid "телефон"
+msgstr "phone"
+
+#: Controllers/RoomBooking.php:119 Views/booking.php:77
+msgid "коментар"
+msgstr "comment"
+
+#: Controllers/RoomBooking.php:194
+msgid "Резервацията е потвърдена"
+msgstr "Reservation confirmed"
+
+#: Controllers/RoomBooking.php:201
+msgid "Изтекла валидност на кода за резервация"
+msgstr "Reservation code expired"
+
+#: Controllers/Rooms.php:99 Views/result.php:2
+msgid "настаняване"
+msgstr "arrival"
+
+#: Controllers/Rooms.php:100 Views/result.php:3
+msgid "напускане"
+msgstr "departure"
+
+#: Controllers/Rooms.php:110
+#, php-format
+msgid "Хотелът не разполага с %d места за възрастни"
+msgstr "The hotel does not have free rooms for %d  adults"
+
+#: Controllers/Rooms.php:128
+msgid "Няма свободни стаи"
+msgstr "There are no available rooms"
+
+#: Controllers/Rooms.php:222
+msgid "Резервирай"
+msgstr "Booking"
+
+#: Controllers/Rooms.php:223
+msgid "Общо"
+msgstr "Total"
+
+#: Controllers/Rooms.php:254
+msgid "свободни стаи"
+msgstr "available rooms"
+
+#: Controllers/Rooms.php:285
+msgid "стаята е премахната"
+msgstr "successfully removed"
+
+#: Functions/function.php:18
+msgid "нощувка(и)"
+msgstr "night(s)"
+
+#: Models/SettingsModel.php:29
+msgid "лв."
+msgstr "BGN"
+
+#: Views/booking.php:7
+msgid "Информация за резервацията"
+msgstr "Booking info"
+
+#: Views/booking.php:35
+msgid "изпраща се информация"
+msgstr "sending"
+
+#: Views/booking.php:47 Views/booking.php:48
+msgid "име"
+msgstr "name"
+
+#: Views/booking.php:87
+msgid "резервирай"
+msgstr "booking"
+
+#: Views/booking.php:118
+msgid ""
+"Някоя от стаите току що бе резервирана от друг. Моля потърсете отново за "
+"свободни стаи!"
+msgstr ""
+"One of the rooms was just booked. Please search again for availability!"
+
+#: Views/booking.php:123
+msgid "Избраните от вас стаи все още са свободни"
+msgstr "Your chosen rooms are still free"
+
+#: Views/booking.php:136
+msgid "от"
+msgstr "from"
+
+#: Views/order.php:9
+msgid "Успешно изпратена резервация"
+msgstr "Successfully sent reservation"
+
+#: Views/order.php:17
+msgid "вашата резервация приключи успешно"
+msgstr "your booking is completed successfully"
+
+#: Views/order.php:19
+msgid "Вашият номер на резервация е"
+msgstr "Your booking number is"
+
+#: Views/order.php:20
+msgid ""
+"Ще получите e-mail с линк за потвърждаване на резервацията, който е валиден "
+"10 мин"
+msgstr ""
+"You will receive e-mail with a link to confirm the reservation, which is "
+"valid for 10 min"
+
+#: Views/order.php:24 Views/order.php:39
+msgid "Начало"
+msgstr "Home"
+
+#: Views/order.php:38
+msgid "Нищо не е изпратено"
+msgstr "Nothing is sent"
+
+#: Views/result.php:6
+msgid "търсене"
+msgstr "search"
+
+#: Views/result.php:7 Views/room.php:69
+msgid "легла"
+msgstr "beds"
+
+#: Views/result.php:93
+msgid "гости"
+msgstr "guests"
+
+#: Views/result.php:109
+msgid "търси свободни стаи за дата"
+msgstr "looking for available rooms"
+
+#: Views/result.php:174
+msgid "Няма свободна стая"
+msgstr "There are no available rooms"
+
+#: Views/result.php:191
+msgid "повече информация"
+msgstr "more info"
+
+#: Views/result.php:229 Views/room.php:137
+msgid "брой"
+msgstr "qty"
+
+#: Views/result.php:273
+#, php-format
+msgid "за %d нощувка"
+msgstr "for %d night"
+
+#: Views/result.php:281 Views/result.php:352 Views/room.php:186
+#: Views/room.php:269
+msgid "добави"
+msgstr "add"
+
+#: Views/result.php:338
+msgid "добавяне"
+msgstr "adding"
+
+#: Views/result.php:360 Views/room.php:277
+msgid "Няма повече налични стаи от тип"
+msgstr "There are no more available rooms"
+
+#: Views/result.php:367 Views/room.php:282
+msgid "добавихте"
+msgstr "added"
+
+#: Views/result.php:368 Views/room.php:282
+msgid "стаи от тип"
+msgstr "rooms of type"
+
+#: Views/room.php:38
+msgid "Назад към търсенето"
+msgstr "Back to previous"
+
+#: Views/room.php:64
+msgid "стая тип"
+msgstr "room of type"
+
+#: Views/room.php:83
+msgid "Цени за нощувка"
+msgstr "Price for night"
+
+#: Views/room.php:90
+msgid "период"
+msgstr "period"
+
+#: Views/room.php:91
+msgid "делник"
+msgstr "weekday"
+
+#: Views/room.php:92
+msgid "уикенд"
+msgstr "weekend"
+
+#: Views/room.php:124
+msgid "Вашата заявка за престой"
+msgstr "Your stay request"
+
+#: Views/room.php:199
+msgid "търси налични"
+msgstr "looking for available"
+
+#~ msgid "Това е проба"
+#~ msgstr "This is probe"
