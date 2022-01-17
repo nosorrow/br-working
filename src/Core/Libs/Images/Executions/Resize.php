@@ -37,15 +37,15 @@ class Resize extends AbstractExecutions
      * @param $height_orig
      * @return resource
      */
-    protected function resize($image, $width = null, $height = null, $width_orig, $height_orig)
+    protected function resize($image, $width = null, $height = null, $width_orig=null, $height_orig=null)
     {
         $ratio_orig = $width_orig / $height_orig;
 
-        if ($height == null) {
-            $height = $width / $ratio_orig;
+        if ($height === null) {
+            $height = (int)($width / $ratio_orig);
 
-        } elseif ($width == null) {
-            $width = $height * $ratio_orig;
+        } elseif ($width === null) {
+            $width =(int)($height * $ratio_orig);
         }
 
         $dst_image = imagecreatetruecolor($width, $height);
