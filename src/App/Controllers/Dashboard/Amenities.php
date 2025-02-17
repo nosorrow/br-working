@@ -165,7 +165,7 @@ class Amenities extends DashboardMainController
      * @param Request $request
      * @return int|void
      */
-    public function delete(Request $request)
+    public function deleteAmenitie(Request $request)
     {
         $id = $request->post('id');
 

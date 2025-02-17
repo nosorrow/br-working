@@ -120,7 +120,7 @@ class Rooms extends DashboardMainController
         }
     }
 
-    public function delete(Request $request)
+    public function deleteRoom(Request $request)
     {
         $room_name = $request->post('room_name');
 

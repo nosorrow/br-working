@@ -181,7 +181,7 @@ try {
         ]
     );
     Router::methods(['get', 'post'], 'booking-dashboard/rooms/delete',
-        ['Dashboard/Rooms@delete', 'name' => 'delete_room']
+        ['Dashboard/Rooms@deleteRoom', 'name' => 'delete_room']
     );
 //Amenities
     Router::methods(['get', 'post'], 'booking-dashboard/amenities',
@@ -200,7 +200,7 @@ try {
         ['Dashboard/Amenities@edit', 'name' => 'edit_amenities']
     );
     Router::post('booking-dashboard/amenities/delete',
-        ['Dashboard/Amenities@delete', 'name' => 'delete_amenities']
+        ['Dashboard/Amenities@deleteAmenitie', 'name' => 'delete_amenities']
     );
 // Settings
     Router::get('booking-dashboard/settings',

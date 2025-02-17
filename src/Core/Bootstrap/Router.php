@@ -533,6 +533,7 @@ class Router
                 $pattern_array = array_combine($_array, array_values($params));
 
                 foreach ($pattern_array as $pattern => $replacement) {
+                    $replacement = $replacement ?? '';
                     $route = preg_replace($pattern, $replacement, $route);
                 }
 

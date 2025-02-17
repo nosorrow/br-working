@@ -1,4 +1,4 @@
-﻿<%@ WebHandler Language="C#" Class="filemanager" %>
+<%@ WebHandler Language="C#" Class="filemanager" %>
 
 //	** Filemanager ASP.NET connector
 //

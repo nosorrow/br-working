@@ -85,7 +85,7 @@ class FileReader {
   var $_pos;
   var $_fd;
   var $_length;
-
+  public $error;
   /**
    * FileReader constructor.
    * @param $filename
