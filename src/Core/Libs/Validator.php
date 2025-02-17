@@ -635,7 +635,7 @@ class Validator
      */
     public function max($str, $max)
     {
-        return (mb_strlen($str) <= $max);
+        return (mb_strlen($str ?? "") <= $max);
     }
 
     /**
@@ -647,7 +647,7 @@ class Validator
      */
     public function min($str, $min)
     {
-        return (mb_strlen($str) >= $min);
+        return (mb_strlen($str ?? "") >= $min);
     }
 
     /**
