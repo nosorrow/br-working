@@ -1,7 +1,7 @@
 <div style="font-weight:bold; padding:15px">
 <p>Успешна резервация № : #{reservation_id}</p>
 
-<p>Моля да потвърждите вашата резервацията тук: <a href="{confirm_link}">{confirm_link}</a></p>
+<p>Моля да потвърдите вашата резервацията тук: <a href="{confirm_link}">{confirm_link}</a></p>
 
 <p>Линкът е валиден 10 мин. !</p>
 </div>

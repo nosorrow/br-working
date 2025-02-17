@@ -11,6 +11,8 @@ use Core\Libs\Request;
 use Core\Libs\Session;
 use Core\Libs\Validator;
 use Core\Libs\Csrf;
+use PHPMailer;
+use SMTP;
 
 /**
  * /**
@@ -245,6 +247,15 @@ class RoomBooking extends Controller
     protected function sendMail($to, $message)
     {
         $mail = new \PHPMailer();
+
+        $mail->isSMTP();                                            //Send using SMTP
+        $mail->Host       = 'sandbox.smtp.mailtrap.io';                     //Set the SMTP server to send through
+        $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+        $mail->Username   = 'b117bbe9433bed';                     //SMTP username
+        $mail->Password   = 'c96ceb46ca6277';                               //SMTP password
+        //Enable implicit TLS encryption
+        $mail->Port       = 2525;
+
         $mail->CharSet = 'UTF-8';
         //From email address and name
         $mail->From = settings()->email;
